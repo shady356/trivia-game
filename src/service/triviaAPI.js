@@ -2,7 +2,7 @@ import axios from "axios";
 
 const createAxiosInstance = () => {
   let config = axios.create({
-    baseURL: "https://opentdb.com/api.php?" //TODO: replace with env: process.env.VUE_APP_TRIVIA_GAME_URL
+    baseURL: "https://opentdb.com" // TODO: replace with env: process.env.VUE_APP_TRIVIA_GAME_URL
   });
 
   return config;
@@ -30,9 +30,14 @@ export default {
 
   async getQuiz(amount, category, difficulty, type) {
     try {
-      let response = await this.axiosInstance.get(
-        `amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`
-      );
+      let response = await this.axiosInstance.get("api.php", {
+        params: {
+          amount,
+          category,
+          difficulty,
+          type
+        }
+      });
       return responseHandler(response);
     } catch (error) {
       return errorHandler(error);
