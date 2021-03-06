@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Hello</h1>
+    <h1 class="header">Hello</h1>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   methods: {
     async getQuiz() {
       let response = await triviaAPI.getQuiz(10, 18, "medium", "boolean");
-      console.log(response)
+      console.log(response);
 
       if (response.error) {
         console.log("error"); // TODO: replace with toast
@@ -23,3 +23,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  padding: $xl;
+  background: #f00;
+}
+</style>
