@@ -5,7 +5,7 @@
         v-for="category in categories"
         :key="category.value"
         tag="li"
-        @click.native="setCurrentCategory(category)"
+        @click.native="selectCategory(category)"
       >
         {{ category.name }}
       </BaseListItem>
@@ -29,7 +29,8 @@ export default {
   },
   methods: {
     ...mapActions(["commitCurrentCategory"]),
-    setCurrentCategory(category) {
+    selectCategory(category) {
+      this.$emit("selectCategory", category);
       this.commitCurrentCategory(category.value);
     }
   }

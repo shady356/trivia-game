@@ -6,15 +6,11 @@
       </template>
     </BaseHeader>
     <div class="map">
-      <ul class="level-list">
-        <li v-for="level in levels" :key="level.id" class="level-item" @click="openGameModal(level)">
-          {{ level.id }}
-        </li>
-      </ul>
+      <CategoryList @selectCategory="openGameModal" />
     </div>
     <BaseModal v-if="isGameModalOpen" @close="closeGameModal">
-      Category: {{ selectedLevel.category }} <br />
-      Type: {{ selectedLevel.type }} 
+      
+      Category: {{selectedCategory.name}}
       <br />
       <br />
       <br />
@@ -30,20 +26,19 @@
 import BaseHeader from "@/components/base/BaseHeader.vue";
 import BaseModal from "@/components/base/BaseModal.vue";
 import BaseButton from "@/components/base/BaseButton.vue";
+import CategoryList from "@/components/categories/CategoriesList.vue";
 export default {
   name: "Map",
   components: {
     BaseButton,
     BaseHeader,
-    BaseModal
+    BaseModal,
+    CategoryList
   },
   data () {
     return {
       isGameModalOpen: false,
-      selectedLevel: {
-        category: null,
-        type: null
-      },
+      selectedCategory: null,
       levels: [
         {
           id: 1,
@@ -76,11 +71,9 @@ export default {
     }
   },
   methods: {
-    openGameModal(level) {
+    openGameModal(category) {
       this.isGameModalOpen = true
-      this.selectedLevel.category = level.gameDetails.category
-      this.selectedLevel.type = level.gameDetails.type
-      console.log(level)
+      this.selectedCategory = category
     },
     closeGameModal() {
       this.isGameModalOpen = false
@@ -92,26 +85,5 @@ export default {
 <style lang="scss" scoped>
 .map {
   padding: $l;
-
-  .level-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    .level-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff;
-      width: $xl;
-      height: $xl;
-      border-radius: 50%;
-      font-size: 24px;
-
-      &:nth-child(even) {
-        align-self: flex-end;
-      }
-    }
-  }
 }
 </style>

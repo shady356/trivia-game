@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <h1 class="game-title">Trivia game</h1>
-    <!-- <CategoryList /> -->
     <router-link to="map">
       <BaseButton>
         START
@@ -12,13 +11,12 @@
 
 <script>
 // import triviaAPI from "@/service/triviaAPI.js";
-// import CategoryList from "@/components/categories/CategoriesList.vue";
+// 
 
 import BaseButton from "@/components/base/BaseButton.vue";
 export default {
   name: "Home",
   components: {
-    // CategoryList,
     BaseButton
   },
   mounted() {
