@@ -9,9 +9,12 @@ body {
   background: #9ecebe;
 }
 
-#app {
-  margin: 0;
+*{
   padding: 0;
+  margin: 0;
+}
+
+#app {
   font-family: "Patrick Hand", cursive;
   list-style: none;
 

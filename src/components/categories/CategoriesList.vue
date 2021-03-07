@@ -30,7 +30,7 @@ export default {
   methods: {
     ...mapActions(["commitCurrentCategory"]),
     setCurrentCategory(category) {
-      this.commitCurrentCategory(category.value)
+      this.commitCurrentCategory(category.value);
     }
   }
 };

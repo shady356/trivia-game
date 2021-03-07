@@ -1,0 +1,51 @@
+<template>
+  <header class="header">
+    <router-link class="column" :to="{ name: routerBack }">
+      <fa-icon icon="chevron-left" class="go-back" />
+    </router-link>
+    <div class="column">
+      <slot name="title" />
+    </div>
+    <div class="column">
+      <slot name="options" />
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  name: "BaseHeader",
+  props: {
+    routerBack: {
+      type: String,
+      required: false,
+      default: "Home"
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.header {
+  align-items: center;
+  background: hsla(0, 0%, 100%, 0.9);
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  padding: $s;
+  position: sticky;
+  top: 0;
+
+  .column {
+    text-align: center;
+    &:nth-child(1) {
+      flex-grow: 1;
+    }
+    &:nth-child(2) {
+      flex-grow: 12;
+    }
+    &:nth-child(3) {
+      flex-grow: 1;
+    }
+  }
+}
+</style>

@@ -18,7 +18,7 @@ export default {
   border-bottom: 2px solid #86afa1;
   border-radius: $m;
   color: #07682c;
-  padding: $xs $l;
+  padding: $m $l;
   margin: $s;
 }
 </style>

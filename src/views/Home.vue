@@ -1,5 +1,10 @@
 <template>
   <div class="home">
+    <BaseHeader>
+      <template #title>
+        Choose a category
+      </template>
+    </BaseHeader>
     <CategoryList />
   </div>
 </template>
@@ -7,10 +12,12 @@
 <script>
 import triviaAPI from "@/service/triviaAPI.js";
 import CategoryList from "@/components/categories/CategoriesList.vue";
+import BaseHeader from "@/components/base/BaseHeader.vue";
 export default {
   name: "Home",
   components: {
-    CategoryList
+    CategoryList,
+    BaseHeader
   },
   mounted() {
     // this.getQuiz();
