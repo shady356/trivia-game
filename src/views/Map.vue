@@ -7,23 +7,43 @@
     </BaseHeader>
     <div class="map">
       <ul class="level-list">
-        <li v-for="level in levels" :key="level.id" class="level-item">
+        <li v-for="level in levels" :key="level.id" class="level-item" @click="openGameModal(level)">
           {{ level.id }}
         </li>
       </ul>
     </div>
+    <BaseModal v-if="isGameModalOpen" @close="closeGameModal">
+      Category: {{ selectedLevel.category }} <br />
+      Type: {{ selectedLevel.type }} 
+      <br />
+      <br />
+      <br />
+      <br />
+      <BaseButton>
+        Play
+      </BaseButton>
+    </BaseModal>
   </div>
 </template>
 
 <script>
 import BaseHeader from "@/components/base/BaseHeader.vue";
+import BaseModal from "@/components/base/BaseModal.vue";
+import BaseButton from "@/components/base/BaseButton.vue";
 export default {
   name: "Map",
   components: {
-    BaseHeader
+    BaseButton,
+    BaseHeader,
+    BaseModal
   },
   data () {
     return {
+      isGameModalOpen: false,
+      selectedLevel: {
+        category: null,
+        type: null
+      },
       levels: [
         {
           id: 1,
@@ -53,6 +73,17 @@ export default {
           }
         }
       ]
+    }
+  },
+  methods: {
+    openGameModal(level) {
+      this.isGameModalOpen = true
+      this.selectedLevel.category = level.gameDetails.category
+      this.selectedLevel.type = level.gameDetails.type
+      console.log(level)
+    },
+    closeGameModal() {
+      this.isGameModalOpen = false
     }
   }
 }
