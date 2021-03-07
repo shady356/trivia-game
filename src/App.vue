@@ -6,18 +6,17 @@
 
 <style lang="scss">
 body {
-  background: #9ecebe;
+  background: #2be;
 }
 
 *{
   padding: 0;
   margin: 0;
+  list-style: none;
+  font-family: "Patrick Hand", cursive;
 }
 
 #app {
-  font-family: "Patrick Hand", cursive;
-  list-style: none;
-
   ul {
     margin: 0;
     padding: 0;
