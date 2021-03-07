@@ -1,28 +1,24 @@
 <template>
   <div class="home">
     <h1 class="game-title">Trivia game</h1>
-    <!-- <BaseHeader>
-      <template #title>
-        Choose a category
-      </template>
-    </BaseHeader>
-    <CategoryList /> -->
-    <BaseButton>
-      START
-    </BaseButton>
+    <!-- <CategoryList /> -->
+    <router-link to="map">
+      <BaseButton>
+        START
+      </BaseButton>
+    </router-link>
   </div>
 </template>
 
 <script>
 // import triviaAPI from "@/service/triviaAPI.js";
 // import CategoryList from "@/components/categories/CategoriesList.vue";
-// import BaseHeader from "@/components/base/BaseHeader.vue";
+
 import BaseButton from "@/components/base/BaseButton.vue";
 export default {
   name: "Home",
   components: {
     // CategoryList,
-    // BaseHeader
     BaseButton
   },
   mounted() {
