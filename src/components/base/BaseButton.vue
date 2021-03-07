@@ -19,10 +19,11 @@ export default {
 .button {
   border: none;
   background: #fff;
-  padding: $m $xl;
+  padding: $m $l;
   color: #2be;
   border-radius: 50px 15% / 50% 40px;
-  border: 6px solid #2299ee60;
+  border: 4px solid #2299ee60;
+  letter-spacing: 1px;
   font-size: 28px;
   font-weight: 700;
 }

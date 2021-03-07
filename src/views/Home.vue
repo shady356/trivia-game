@@ -49,7 +49,7 @@ export default {
     padding: $xxl 0;
     color: #fff;
     text-transform: uppercase;
-    letter-spacing: 0px;
+    letter-spacing: 2px;
     text-shadow: 0 4px 4px #09c;
   }
 }
