@@ -1,14 +1,14 @@
 <template>
   <div>
     <ul>
-      <CategoryItem
+      <BaseListItem
         v-for="category in categories"
         :key="category.value"
         tag="li"
         @click.native="setCurrentCategory(category)"
       >
         {{ category.name }}
-      </CategoryItem>
+      </BaseListItem>
     </ul>
   </div>
 </template>
@@ -16,11 +16,11 @@
 <script>
 import { mapActions } from "vuex";
 import { $getCategories } from "@/helpers/triviaData.js";
-import CategoryItem from "@/components/categories/CategoryItem.vue";
+import BaseListItem from "@/components/base/BaseListItem.vue";
 export default {
   name: "CategoryList",
   components: {
-    CategoryItem
+    BaseListItem
   },
   data() {
     return {
