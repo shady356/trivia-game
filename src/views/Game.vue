@@ -1,17 +1,14 @@
 <template>
   <div>
-    <h1>The game</h1>
     <div v-if="questions !== null">
-      <GameCard
-        :data="questions[1]"
-      />
+      <GameCard :data="questions[1]" />
     </div>
   </div>
 </template>
 
 <script>
 import triviaAPI from "@/service/triviaAPI.js";
-import GameCard from "@/components/game/GameCard.vue"
+import GameCard from "@/components/game/GameCard.vue";
 export default {
   name: "Game",
   components: {
@@ -20,7 +17,7 @@ export default {
   data() {
     return {
       questions: null
-    }
+    };
   },
   mounted() {
     this.getQuiz();

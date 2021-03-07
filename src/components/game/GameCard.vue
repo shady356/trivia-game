@@ -2,20 +2,26 @@
   <div class="game-card">
     <h6>{{ data.category }}</h6>
     <h3>{{ data.question }}</h3>
-    <div v-if="isMultiple">
-      <BaseButton v-for="option in multipleChoiceOptions" :key="option">
-        {{ option }}
-      </BaseButton>
+    <div class="option-list">
+      <div v-if="isMultiple">
+        <BaseButton
+          v-for="option in multipleChoiceOptions"
+          :key="option"
+          class="option"
+        >
+          {{ option }}
+        </BaseButton>
+      </div>
+      <div v-else>
+        <BaseButton class="option">
+          False
+        </BaseButton>
+        <BaseButton class="option">
+          True
+        </BaseButton>
+      </div>
     </div>
-    <div v-else>
-      <BaseButton>
-        False
-      </BaseButton>
-      <BaseButton>
-        True
-      </BaseButton>
-    </div>
-    <pre>{{ data }}</pre>
+    <!-- <pre>{{ data }}</pre> -->
   </div>
 </template>
 
@@ -35,7 +41,7 @@ export default {
   data() {
     return {
       multipleChoiceOptions: null
-    }
+    };
   },
   computed: {
     isMultiple() {
@@ -54,11 +60,27 @@ export default {
       return options;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .game-card {
-  background: #08a;
+  background: rgb(9, 49, 59);
+  color: #fff;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: normal;
+
+  .option-list {
+    padding: $l;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .option {
+      margin: 1% 0;
+      width: 100%;
+    }
+  }
 }
 </style>
