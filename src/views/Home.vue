@@ -1,15 +1,25 @@
 <template>
   <div class="home">
-    <h1 class="header">Hello</h1>
+    <ul>
+      <li v-for="category in categories" :key="category.value">
+        {{ category.name }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 import triviaAPI from "@/service/triviaAPI.js";
+import { $getCategories } from "@/helpers/triviaData.js";
 export default {
   name: "Home",
+  data() {
+    return {
+      categories: $getCategories()
+    };
+  },
   mounted() {
-    this.getQuiz();
+    // this.getQuiz();
   },
   methods: {
     async getQuiz() {
@@ -27,6 +37,6 @@ export default {
 <style lang="scss" scoped>
 .home {
   padding: $xl;
-  background: #f00;
+  background: cyan;
 }
 </style>
