@@ -10,27 +10,11 @@
 </template>
 
 <script>
-// import triviaAPI from "@/service/triviaAPI.js";
-// 
-
 import BaseButton from "@/components/base/BaseButton.vue";
 export default {
   name: "Home",
   components: {
     BaseButton
-  },
-  mounted() {
-    // this.getQuiz();
-  },
-  methods: {
-    /* async getQuiz() {
-      let response = await triviaAPI.getQuiz(10, 18, "medium", "boolean");
-      console.log(response);
-
-      if (response.error) {
-        console.log("error"); // TODO: replace with toast
-      }
-    } */
   }
 };
 </script>

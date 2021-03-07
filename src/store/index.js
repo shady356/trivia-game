@@ -5,9 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    currentCategory: null,
-    currentDifficulty: null,
-    currentType: null,
+    currentCategory: 9,
+    currentDifficulty: "medium",
+    currentType: "boolean",
     currentNumberOfQuestions: 5
   },
   mutations: {

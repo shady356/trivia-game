@@ -13,11 +13,16 @@
       Category: {{selectedCategory.name}}
       <br />
       <br />
+      Choose difficulty: easy, medium hard
       <br />
       <br />
-      <BaseButton>
-        Play
-      </BaseButton>
+      Number of questions: 10
+      <br />
+      <router-link to="Game" >
+        <BaseButton>
+          Play
+        </BaseButton>
+      </router-link>
     </BaseModal>
   </div>
 </template>
