@@ -1,22 +1,16 @@
 <template>
   <div class="home">
-    <ul>
-      <li v-for="category in categories" :key="category.value">
-        {{ category.name }}
-      </li>
-    </ul>
+    <CategoryList />
   </div>
 </template>
 
 <script>
 import triviaAPI from "@/service/triviaAPI.js";
-import { $getCategories } from "@/helpers/triviaData.js";
+import CategoryList from "@/components/categories/CategoriesList.vue";
 export default {
   name: "Home",
-  data() {
-    return {
-      categories: $getCategories()
-    };
+  components: {
+    CategoryList
   },
   mounted() {
     // this.getQuiz();
@@ -33,10 +27,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.home {
-  padding: $xl;
-  background: cyan;
-}
-</style>
