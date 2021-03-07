@@ -5,6 +5,7 @@
         v-for="category in categories"
         :key="category.value"
         tag="li"
+        @click.native="setCurrentCategory(category)"
       >
         {{ category.name }}
       </CategoryItem>
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { $getCategories } from "@/helpers/triviaData.js";
 import CategoryItem from "@/components/categories/CategoryItem.vue";
 export default {
@@ -24,6 +26,12 @@ export default {
     return {
       categories: $getCategories()
     };
+  },
+  methods: {
+    ...mapActions(["commitCurrentCategory"]),
+    setCurrentCategory(category) {
+      this.commitCurrentCategory(category.value)
+    }
   }
 };
 </script>
