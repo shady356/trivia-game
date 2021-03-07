@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     currentCategory: 9,
     currentDifficulty: "medium",
-    currentType: "boolean",
+    currentType: "multiple",
     currentNumberOfQuestions: 5
   },
   mutations: {

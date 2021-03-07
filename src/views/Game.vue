@@ -1,13 +1,22 @@
 <template>
   <div>
     <h1>The game</h1>
+    <div v-if="questions !== null">
+      <GameCard
+        :data="questions[1]"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import triviaAPI from "@/service/triviaAPI.js";
+import GameCard from "@/components/game/GameCard.vue"
 export default {
   name: "Game",
+  components: {
+    GameCard
+  },
   data() {
     return {
       questions: null
@@ -23,12 +32,13 @@ export default {
       const difficulty = this.$store.state.currentDifficulty;
       const type = this.$store.state.currentType;
 
-      let response = await triviaAPI.getQuiz(
+      const response = await triviaAPI.getQuiz(
         numberOfQuestions,
         category,
         difficulty,
         type
       );
+      this.questions = response.data.results;
       console.log(response);
 
       if (response.error) {
